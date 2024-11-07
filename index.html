@@ -1,0 +1,193 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	<link rel="stylesheet"  href="{% static '/css/styles.css'%}" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" />
+  	
+</head>
+<body>
+<div class="body">
+        
+    <div class="avatar-w-photo-parent">
+        <img class="avatar-w-photo" alt="" src="{% static 'images/avatar-w-photo.png'%}">
+        
+        {% comment %} <a href="{% url 'secondPage'%}"> {% endcomment %}
+          <a href="">
+          <img class="bell-1-icon" alt="" src="{% static 'images/bell 1.png'%}" id="bell1Icon"></a>
+        
+        <div class="badges">
+              <div class="badge-label">3</div>
+        </div>
+        <div class="greetings">
+              <b class="welcome-back">Welcome Back!</b>
+              <div class="good-morning">Good  Morning</div>
+        </div>
+        <img class="iconsaxboldsetting2" alt="" src="{% static 'images/setting2.png'%}">
+        
+        <div class="iconsaxlinearsearchnormal-parent">
+              <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/searchnormal.png'%}">
+              
+              <div class="search">Search</div>
+        </div>    
+  </div>
+  <div class="side-bar">
+        <div class="frame-parent">
+              <div class="app-logo-parent">
+                    <div class="app-logo">
+                      <div class="fitness-parent">
+                          <div class="fitness">BodyBoost </div>
+                          <img alt="" src="{% static 'images/logoPurple.png'%}">
+                      </div>
+                    </div>
+                    <div class="button-parent">
+                          <a href="">
+                              <div class="button" id="buttonContainer">
+                                  <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Dashbaord-1.png'%}">
+                                  
+                                  <div class="overview">Overview</div>
+                              </div>
+                          </a>
+                          <div class="button2">
+                                <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Workout-1.png'%}">
+                                
+                                <div class="overview">Workout</div>
+                          </div>
+                          <div class="button1">
+                                <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Diet Plan.png'%}" >
+                                
+                                <div class="overview">Diet Plan</div>
+                          </div>
+                          <form id="myForm" action="{% url 'index' %}" method="POST">
+                              {% csrf_token %}
+                              <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/ARROW-down.jpg' %}">
+                              <p>Please select</p>
+                              <input type="radio" id="scan_products" name="fav_language" value="index">
+                              <label for="scan_products">Scan/Search Products</label><br>
+                              <input type="radio" id="nutrition_score" name="fav_language" value="index2">
+                              <label for="nutrition_score">Check Nutrition Score</label><br>
+                              <input type="radio" id="enjoy_food" name="fav_language" value="index3">
+                              <label for="enjoy_food">Enjoy food without gaining the pound</label><br>
+                              <button type="button" onclick="submitForm()">Submit</button>
+                          </form>
+                          
+                          <script>
+                              function submitForm() {
+                                  const form = document.getElementById('myForm');
+                                  const selectedValue = form.fav_language.value;
+                          
+                                  // Redirect based on the selected radio button
+                                  if (selectedValue === 'index') {
+                                      form.action = "{% url 'index' %}";
+                                  } else if (selectedValue === 'index2') {
+                                      form.action = "{% url 'index2' %}";
+                                  } else if (selectedValue === 'index3') {
+                                      form.action = "{% url 'index3' %}";
+                                  }
+                          
+                                  // Submit the form
+                                  form.submit();
+                              }
+                          </script>
+                          
+                          <div class="button2">
+                                <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Goal.png'%}">
+                                
+                                <div class="overview">Goals</div>
+                          </div>
+                          <div class="button2">
+                                <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Schedule.png'%}">
+                                
+                                <div class="overview">My Schedule</div>
+                          </div>
+                          <div class="button2">
+                                <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Progres.png'%}">
+                                
+                                <div class="overview">Progress</div>
+                                <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/arrow-dark.png'%}">
+                                
+                          </div>
+                    </div>
+              </div>
+              <div class="frame-inner">
+              </div>
+        </div>
+        <div class="button2">
+              <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Help.png'%}">
+              
+              <div class="overview">Help</div>
+        </div>
+        <div class="button6">
+              <img class="iconsaxlinearsearchnormal" alt="" src="{% static 'images/Logout.png'%}">
+              
+              <div class="overview">Logout</div>
+        </div>
+  </div>
+  <div>
+    <div class="flex mgn">
+        <div class="text-center"> 
+            <div class="txt-lg">A healthy diet for a better life</div>
+            <div class="txt-n">The Proteinful app that will  help you reach your 
+                health you reach your health and weight goals.</div>
+        </div>
+        <div>
+            <img class="" alt="" src="{% static 'images/Group 9.png'%}">
+        </div>
+  
+    </div>
+    <div class="flex-1 mgn-l">
+        <div class="flex">
+            <img class="" alt="" src="{% static 'images/Group 7.png'%}" width="150" height="150">
+            <img class="" alt="" src="{% static 'images/Group 4.png'%}" width="150" height="150">
+        </div>
+        <div>
+            <img class="" alt="" src="{% static 'images/Group 18.png'%}">
+            <div style="margin-left: -60px;">
+            <div class="txt-g">Scan/Search products</div>
+            <div style="font-size:15px;">Scan or search foods to get nutrition & protein information.</div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  
+</div>
+</div>
+
+  	
+  	<script>
+    		var signUpText = document.getElementById("signUpText");
+    		if(signUpText) {
+      			signUpText.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}
+    		
+    		var nextContainer = document.getElementById("nextContainer");
+    		if(nextContainer) {
+      			nextContainer.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}
+    		
+    		var bell1Icon = document.getElementById("bell1Icon");
+    		if(bell1Icon) {
+      			bell1Icon.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}
+    		
+    		var buttonContainer = document.getElementById("buttonContainer");
+    		if(buttonContainer) {
+      			buttonContainer.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}</script></body>
+</html>
